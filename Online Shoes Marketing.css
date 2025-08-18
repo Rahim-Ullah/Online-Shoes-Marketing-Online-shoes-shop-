@@ -334,6 +334,7 @@ h1{
 }
 #footer-ide-last{
   display: flex;
+  flex-direction: column;
   gap: 1rem;
 }
 #footer-ide-last img{
@@ -496,3 +497,4 @@ h1{
     gap: 1rem;
   }
 }
+
