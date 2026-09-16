@@ -5,30 +5,30 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Outfit:wght@400;500;600;700;800&display=swap');
 
-/* Local Fonts with correct relative paths */
+/* Local Fonts organized in assets/fonts/ with correct relative paths */
 @font-face {
   font-family: 'shoes';
-  src: url('thanksvalentinepersonaluse-wy9wn.ttf') format('truetype');
+  src: url('assets/fonts/thanksvalentinepersonaluse-wy9wn.ttf') format('truetype');
   font-display: swap;
 }
 @font-face {
   font-family: 'nunitoxl';
-  src: url('nxl.ttf') format('truetype');
+  src: url('assets/fonts/nxl.ttf') format('truetype');
   font-display: swap;
 }
 @font-face {
   font-family: 'nunitor';
-  src: url('nr.ttf') format('truetype');
+  src: url('assets/fonts/nr.ttf') format('truetype');
   font-display: swap;
 }
 @font-face {
   font-family: 'nunitol';
-  src: url('nl.ttf') format('truetype');
+  src: url('assets/fonts/nl.ttf') format('truetype');
   font-display: swap;
 }
 @font-face {
   font-family: 'nunitoxb';
-  src: url('nxb.ttf') format('truetype');
+  src: url('assets/fonts/nxb.ttf') format('truetype');
   font-display: swap;
 }
 
@@ -229,6 +229,7 @@ button {
   gap: 0.5rem;
   transition: var(--transition-normal);
   border: 1px solid transparent;
+  white-space: nowrap;
 }
 
 .title-sbox .btn-explore:hover {
@@ -239,7 +240,7 @@ button {
 }
 
 /* ==========================================================================
-   NAVIGATION BAR
+   NAVIGATION BAR & MOBILE HAMBURGER
    ========================================================================== */
 .navbar {
   background-color: var(--light-surface);
@@ -249,9 +250,18 @@ button {
   align-items: center;
   position: sticky;
   top: 0;
-  z-index: 99;
+  z-index: 999;
   border-bottom: 1px solid var(--border-light);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.mobile-nav-label {
+  display: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--dark);
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .nav-menu {
@@ -300,33 +310,44 @@ button {
   transform: translateX(-50%) scaleX(1);
 }
 
-/* Mobile Toggle Hamburger */
+/* Mobile Toggle Hamburger Button */
 .navbar-toggle {
   display: none;
-  background: none;
-  border: none;
+  background: var(--light-bg);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xs);
   cursor: pointer;
-  padding: 0.5rem;
-  z-index: 101;
+  padding: 0.45rem 0.6rem;
+  z-index: 1001;
+  width: 42px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: var(--transition-fast);
+}
+
+.navbar-toggle:hover {
+  border-color: var(--primary);
 }
 
 .toggle-line {
-  width: 26px;
-  height: 3px;
+  width: 22px;
+  height: 2.5px;
   background-color: var(--primary);
-  margin: 5px 0;
-  border-radius: 3px;
-  transition: var(--transition-normal);
+  margin: 2.5px 0;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .navbar-toggle.active .toggle-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 6px);
+  transform: translateY(7.5px) rotate(45deg);
 }
 .navbar-toggle.active .toggle-line:nth-child(2) {
   opacity: 0;
 }
 .navbar-toggle.active .toggle-line:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -6px);
+  transform: translateY(-7.5px) rotate(-45deg);
 }
 
 /* ==========================================================================
@@ -338,7 +359,7 @@ button {
 
 .home-below {
   position: relative;
-  background: linear-gradient(135deg, rgba(15, 17, 21, 0.94) 0%, rgba(26, 20, 18, 0.9) 100%), url('22.jpg');
+  background: linear-gradient(135deg, rgba(15, 17, 21, 0.94) 0%, rgba(26, 20, 18, 0.9) 100%), url('assets/images/22.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -498,6 +519,7 @@ button {
   gap: 1.75rem;
 }
 
+/* PRODUCT CARD & FOOTER BUTTON FIX (NO TEXT WRAP) */
 .product-card {
   background: var(--light-surface);
   border-radius: var(--radius-asym);
@@ -597,23 +619,26 @@ button {
   overflow: hidden;
 }
 
+/* PRODUCT FOOTER & BUTTON FIX: PREVENTS WRAPPING OF BUTTON TEXT */
 .product-footer {
   margin-top: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 0.75rem;
+  padding-top: 0.85rem;
   border-top: 1px solid var(--border-light);
+  gap: 0.6rem;
 }
 
 .product-price {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--dark);
+  white-space: nowrap;
 }
 
 .product-price .old-price {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--text-light);
   text-decoration: line-through;
   margin-left: 0.3rem;
@@ -621,20 +646,30 @@ button {
 }
 
 .btn-card-action {
-  padding: 0.45rem 1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.55rem 1.15rem;
   font-size: 0.85rem;
+  font-weight: 700;
   border-radius: var(--radius-pill);
   background-color: var(--primary);
   color: white;
-  font-weight: 600;
-  border: 1px solid transparent;
+  border: 1.5px solid var(--primary);
+  cursor: pointer;
   transition: var(--transition-fast);
+  white-space: nowrap !important; /* CRITICAL FIX: Stops text wrapping */
+  flex-shrink: 0 !important;       /* CRITICAL FIX: Stops button squeezing */
+  min-width: 96px;
+  text-align: center;
 }
 
 .btn-card-action:hover {
   background-color: transparent;
   color: var(--primary);
   border-color: var(--primary);
+  box-shadow: 0 2px 8px var(--primary-glow);
 }
 
 /* ==========================================================================
@@ -644,7 +679,7 @@ button {
   width: 100%;
   box-sizing: border-box;
   padding: 5rem 6%;
-  background: linear-gradient(135deg, rgba(15, 17, 21, 0.9) 0%, rgba(30, 20, 15, 0.85) 100%), url('8.jpg');
+  background: linear-gradient(135deg, rgba(15, 17, 21, 0.9) 0%, rgba(30, 20, 15, 0.85) 100%), url('assets/images/8.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -682,6 +717,7 @@ button {
   display: inline-block;
   margin-top: 0.5rem;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .help:hover {
@@ -921,7 +957,6 @@ button {
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
 }
 
-/* Social Brand specific hover backgrounds */
 .social-btn.instagram:hover {
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
   border-color: transparent;
@@ -976,7 +1011,7 @@ button {
    SHOP PAGE STYLES
    ========================================================================== */
 .shop-hero {
-  background: linear-gradient(rgba(15, 17, 21, 0.85), rgba(15, 17, 21, 0.85)), url('222222.jpg');
+  background: linear-gradient(rgba(15, 17, 21, 0.85), rgba(15, 17, 21, 0.85)), url('assets/images/222222.jpg');
   background-size: cover;
   background-position: center;
   padding: 4rem 6%;
@@ -1056,6 +1091,7 @@ button {
   font-weight: 600;
   font-size: 0.9rem;
   transition: var(--transition-fast);
+  white-space: nowrap;
 }
 
 #searchBtn:hover {
@@ -1080,6 +1116,7 @@ button {
   font-size: 0.875rem;
   cursor: pointer;
   transition: var(--transition-fast);
+  white-space: nowrap;
 }
 
 .filter-pill:hover,
@@ -1105,7 +1142,6 @@ button {
   gap: 2rem;
 }
 
-/* Empty State */
 .no-results {
   grid-column: 1 / -1;
   text-align: center;
@@ -1131,7 +1167,7 @@ button {
    ABOUT PAGE STYLES
    ========================================================================== */
 .about-hero {
-  background: linear-gradient(rgba(15, 17, 21, 0.88), rgba(15, 17, 21, 0.88)), url('0909.jpg');
+  background: linear-gradient(rgba(15, 17, 21, 0.88), rgba(15, 17, 21, 0.88)), url('assets/images/0909.jpg');
   background-size: cover;
   background-position: center;
   padding: 4.5rem 6%;
@@ -1267,7 +1303,6 @@ button {
   line-height: 1.6;
 }
 
-/* Stats Counter Bar */
 .stats-banner {
   background: var(--dark);
   color: white;
@@ -1300,7 +1335,7 @@ button {
    CONTACT PAGE STYLES
    ========================================================================== */
 .contact-hero {
-  background: linear-gradient(rgba(15, 17, 21, 0.88), rgba(15, 17, 21, 0.88)), url('1818.jpg');
+  background: linear-gradient(rgba(15, 17, 21, 0.88), rgba(15, 17, 21, 0.88)), url('assets/images/1818.jpg');
   background-size: cover;
   background-position: center;
   padding: 4.5rem 6%;
@@ -1407,7 +1442,6 @@ button {
   color: var(--primary);
 }
 
-/* Contact Form Styling */
 .contact-form-card {
   background: var(--light-surface);
   border: 1px solid var(--border-light);
@@ -1498,7 +1532,7 @@ textarea.form-control {
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 2000;
   padding: 1.5rem;
 }
 
@@ -1641,7 +1675,7 @@ textarea.form-control {
   transform: translateY(100px);
   opacity: 0;
   transition: transform 0.3s ease, opacity 0.3s ease;
-  z-index: 2000;
+  z-index: 3000;
   border-left: 4px solid var(--primary);
 }
 
@@ -1660,8 +1694,13 @@ textarea.form-control {
   to { transform: translateY(0); opacity: 1; }
 }
 
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ==========================================================================
-   RESPONSIVE MEDIA QUERIES
+   RESPONSIVE MEDIA QUERIES & MOBILE NAVIGATION FIX
    ========================================================================== */
 @media screen and (max-width: 1024px) {
   .na-products,
@@ -1680,8 +1719,19 @@ textarea.form-control {
 }
 
 @media screen and (max-width: 768px) {
+  .navbar {
+    justify-content: space-between;
+    padding: 0.75rem 6%;
+    position: relative;
+    min-height: 56px;
+  }
+
+  .mobile-nav-label {
+    display: flex;
+  }
+
   .navbar-toggle {
-    display: block;
+    display: flex;
   }
 
   .nav-menu {
@@ -1692,14 +1742,16 @@ textarea.form-control {
     width: 100%;
     background-color: var(--light-surface);
     flex-direction: column;
-    padding: 1.5rem 0;
-    box-shadow: var(--shadow-lg);
-    border-bottom: 1px solid var(--border-light);
+    padding: 1rem 0;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid var(--primary);
+    z-index: 1000;
+    gap: 0;
   }
 
   .nav-menu.active {
-    display: flex;
-    animation: slideUp 0.3s ease;
+    display: flex !important;
+    animation: slideDown 0.25s ease-out forwards;
   }
 
   .nav-menu li {
@@ -1708,7 +1760,14 @@ textarea.form-control {
   }
 
   .nav-menu li a {
-    padding: 0.85rem 1rem;
+    padding: 0.95rem 1.5rem;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .nav-menu li a::after {
+    display: none;
   }
 
   .home-demo-wrapper {
@@ -1784,5 +1843,19 @@ textarea.form-control {
 
   .contact-form-card {
     padding: 1.75rem 1.25rem;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .product-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+  }
+  .product-price {
+    text-align: center;
+  }
+  .btn-card-action {
+    width: 100%;
   }
 }

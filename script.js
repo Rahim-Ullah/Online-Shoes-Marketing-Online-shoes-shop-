@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --------------------------------------------------------------------------
-// 1. Mobile Navigation & Toggle
+// 1. Mobile Navigation & Toggle (100% Reliable across touch & click)
 // --------------------------------------------------------------------------
 function initNavbar() {
   const toggleBtn = document.querySelector('.navbar-toggle');
@@ -19,10 +19,28 @@ function initNavbar() {
 
   if (toggleBtn && navMenu) {
     toggleBtn.addEventListener('click', (e) => {
+      e.preventDefault();
       e.stopPropagation();
-      const isActive = navMenu.classList.toggle('active');
-      toggleBtn.classList.toggle('active', isActive);
-      toggleBtn.setAttribute('aria-expanded', isActive);
+      
+      const isOpen = navMenu.classList.contains('active');
+      if (isOpen) {
+        navMenu.classList.remove('active');
+        toggleBtn.classList.remove('active');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      } else {
+        navMenu.classList.add('active');
+        toggleBtn.classList.add('active');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    // Close mobile menu when clicking any nav link
+    navMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+        toggleBtn.classList.remove('active');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      });
     });
 
     // Close mobile menu when clicking outside
@@ -45,15 +63,24 @@ function initNavbar() {
   }
 }
 
-// Global fallback toggle for inline onclick handler if any remains
+// Global fallback toggle
 function toggleMenu() {
   const toggleBtn = document.querySelector('.navbar-toggle');
   const navMenu = document.getElementById('navMenu');
   if (navMenu) {
-    const isActive = navMenu.classList.toggle('active');
-    if (toggleBtn) {
-      toggleBtn.classList.toggle('active', isActive);
-      toggleBtn.setAttribute('aria-expanded', isActive);
+    const isOpen = navMenu.classList.contains('active');
+    if (isOpen) {
+      navMenu.classList.remove('active');
+      if (toggleBtn) {
+        toggleBtn.classList.remove('active');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      }
+    } else {
+      navMenu.classList.add('active');
+      if (toggleBtn) {
+        toggleBtn.classList.add('active');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+      }
     }
   }
 }
@@ -92,12 +119,10 @@ function initShopFeatures() {
       }
     });
 
-    // Update result count display
     if (resultsCount) {
       resultsCount.textContent = `Showing ${visibleCount} product${visibleCount === 1 ? '' : 's'}`;
     }
 
-    // Handle empty state
     const productsContainer = document.querySelector('.our-products');
     let noResultsEl = document.getElementById('noResultsMessage');
     if (visibleCount === 0) {
@@ -117,7 +142,6 @@ function initShopFeatures() {
     }
   }
 
-  // Live search as user types
   if (searchInput) {
     searchInput.addEventListener('input', (e) => {
       currentSearchQuery = e.target.value.trim().toLowerCase();
@@ -142,7 +166,6 @@ function initShopFeatures() {
     });
   }
 
-  // Category Pills
   filterPills.forEach((pill) => {
     pill.addEventListener('click', () => {
       filterPills.forEach((p) => p.classList.remove('active'));
@@ -169,11 +192,11 @@ function initProductModals() {
   if (!modalOverlay) return;
 
   function openModal(data) {
-    if (modalImg) modalImg.src = data.imgSrc || '';
+    if (modalImg) modalImg.src = data.imgSrc || 'assets/images/7.jpg';
     if (modalImg) modalImg.alt = data.title || 'Shoe Image';
     if (modalCategory) modalCategory.textContent = data.category || 'Footwear';
     if (modalTitle) modalTitle.textContent = data.title || 'Exquisite Shoe';
-    if (modalPrice) modalPrice.textContent = data.price || '$99.99';
+    if (modalPrice) modalPrice.textContent = data.price || '$89.99';
     if (modalDesc) modalDesc.textContent = data.desc || 'Premium handcrafted footwear engineered with superior comfort and breathable materials for everyday elegance.';
 
     modalOverlay.classList.add('active');
@@ -185,7 +208,6 @@ function initProductModals() {
     document.body.style.overflow = '';
   }
 
-  // Bind to all "See Detail" or product cards
   document.querySelectorAll('.btn-card-action, .product-card .product-title, .product-card-img-wrap').forEach((trigger) => {
     trigger.addEventListener('click', (e) => {
       e.preventDefault();
@@ -218,7 +240,6 @@ function initProductModals() {
     }
   });
 
-  // Size buttons inside modal
   const sizeBtns = modalOverlay.querySelectorAll('.size-btn');
   sizeBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -227,7 +248,6 @@ function initProductModals() {
     });
   });
 
-  // Add to Cart
   if (addToCartBtn) {
     addToCartBtn.addEventListener('click', () => {
       const activeSize = modalOverlay.querySelector('.size-btn.active')?.textContent || '9';
@@ -248,7 +268,6 @@ function initContactForm() {
 
   if (textarea && charCounter) {
     textarea.addEventListener('input', () => {
-      const remaining = 500 - textarea.value.length;
       charCounter.textContent = `${textarea.value.length}/500 characters`;
     });
   }

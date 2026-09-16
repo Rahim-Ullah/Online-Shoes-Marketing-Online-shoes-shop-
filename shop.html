@@ -33,7 +33,10 @@
 
   <!-- Sticky Navigation Bar -->
   <nav class="navbar" aria-label="Main Navigation">
-    <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMenu()">
+    <div class="mobile-nav-label">
+      <i class="fa-solid fa-bars-staggered" style="color: var(--primary);"></i> Menu
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
       <div class="toggle-line"></div>
       <div class="toggle-line"></div>
       <div class="toggle-line"></div>
@@ -79,13 +82,13 @@
     </div>
   </section>
 
-  <!-- Products Grid (All 28 Curated Models) -->
+  <!-- Products Grid (All 28 Curated Models with assets/images paths) -->
   <main class="our-products">
     <!-- Item 1 -->
     <article class="product-card" data-category="running">
       <div class="product-card-img-wrap">
         <span class="product-badge">Best Seller</span>
-        <img src="7.jpg" alt="AeroFlex Runner Pro" loading="lazy">
+        <img src="assets/images/7.jpg" alt="AeroFlex Runner Pro" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Running & Athletic</span>
@@ -106,7 +109,7 @@
     <article class="product-card" data-category="sneakers">
       <div class="product-card-img-wrap">
         <span class="product-badge">Trending</span>
-        <img src="2.2.jpg" alt="Urban Street Glide V2" loading="lazy">
+        <img src="assets/images/2.2.jpg" alt="Urban Street Glide V2" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Sneakers & Streetwear</span>
@@ -127,7 +130,7 @@
     <article class="product-card" data-category="formal">
       <div class="product-card-img-wrap">
         <span class="product-badge">Luxury</span>
-        <img src="7777.jpg" alt="Oxford Heritage Leather" loading="lazy">
+        <img src="assets/images/7777.jpg" alt="Oxford Heritage Leather" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Formal & Leather</span>
@@ -148,7 +151,7 @@
     <article class="product-card" data-category="casual">
       <div class="product-card-img-wrap">
         <span class="product-badge">Popular</span>
-        <img src="15.jpg" alt="Vortex Slip-On Comfort" loading="lazy">
+        <img src="assets/images/15.jpg" alt="Vortex Slip-On Comfort" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Slip-On & Casual</span>
@@ -169,7 +172,7 @@
     <article class="product-card" data-category="running">
       <div class="product-card-img-wrap">
         <span class="product-badge">New</span>
-        <img src="0 (1).jpg" alt="HyperSpeed Carbon Racer" loading="lazy">
+        <img src="assets/images/0 (1).jpg" alt="HyperSpeed Carbon Racer" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Running & Athletic</span>
@@ -190,7 +193,7 @@
     <article class="product-card" data-category="sneakers">
       <div class="product-card-img-wrap">
         <span class="product-badge">Classic</span>
-        <img src="0 (2).jpg" alt="Retro Court Mid-Top" loading="lazy">
+        <img src="assets/images/0 (2).jpg" alt="Retro Court Mid-Top" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Sneakers & Streetwear</span>
@@ -211,7 +214,7 @@
     <article class="product-card" data-category="casual">
       <div class="product-card-img-wrap">
         <span class="product-badge">Daily Pick</span>
-        <img src="0 (3).jpg" alt="Breeze Knit Loafer" loading="lazy">
+        <img src="assets/images/0 (3).jpg" alt="Breeze Knit Loafer" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Slip-On & Casual</span>
@@ -232,7 +235,7 @@
     <article class="product-card" data-category="running">
       <div class="product-card-img-wrap">
         <span class="product-badge">Pro Series</span>
-        <img src="0 (4).jpg" alt="TrailBlazer All-Terrain" loading="lazy">
+        <img src="assets/images/0 (4).jpg" alt="TrailBlazer All-Terrain" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Running & Athletic</span>
@@ -253,7 +256,7 @@
     <article class="product-card" data-category="sneakers">
       <div class="product-card-img-wrap">
         <span class="product-badge">Exclusive</span>
-        <img src="0 (5).jpg" alt="Apex Monochrome Runner" loading="lazy">
+        <img src="assets/images/0 (5).jpg" alt="Apex Monochrome Runner" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Sneakers & Streetwear</span>
@@ -274,7 +277,7 @@
     <article class="product-card" data-category="formal">
       <div class="product-card-img-wrap">
         <span class="product-badge">Elegance</span>
-        <img src="0 (6).jpg" alt="Chelsea Italian Boot" loading="lazy">
+        <img src="assets/images/0 (6).jpg" alt="Chelsea Italian Boot" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Formal & Leather</span>
@@ -295,7 +298,7 @@
     <article class="product-card" data-category="running">
       <div class="product-card-img-wrap">
         <span class="product-badge">Performance</span>
-        <img src="0 (8).jpg" alt="Velocity Max Air-Stride" loading="lazy">
+        <img src="assets/images/0 (8).jpg" alt="Velocity Max Air-Stride" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Running & Athletic</span>
@@ -316,7 +319,7 @@
     <article class="product-card" data-category="casual">
       <div class="product-card-img-wrap">
         <span class="product-badge">Warm Comfort</span>
-        <img src="0 (9).jpg" alt="CloudStep Comfort Moccasin" loading="lazy">
+        <img src="assets/images/0 (9).jpg" alt="CloudStep Comfort Moccasin" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Slip-On & Casual</span>
@@ -337,7 +340,7 @@
     <article class="product-card" data-category="sneakers">
       <div class="product-card-img-wrap">
         <span class="product-badge">Retro</span>
-        <img src="0 (10).jpg" alt="Shadow Walk High-Top" loading="lazy">
+        <img src="assets/images/0 (10).jpg" alt="Shadow Walk High-Top" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Sneakers & Streetwear</span>
@@ -358,7 +361,7 @@
     <article class="product-card" data-category="formal">
       <div class="product-card-img-wrap">
         <span class="product-badge">Premium</span>
-        <img src="0 (11).jpg" alt="Monk Strap Executive" loading="lazy">
+        <img src="assets/images/0 (11).jpg" alt="Monk Strap Executive" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Formal & Leather</span>
@@ -379,7 +382,7 @@
     <article class="product-card" data-category="running">
       <div class="product-card-img-wrap">
         <span class="product-badge">Special</span>
-        <img src="22.jpg" alt="Stealth Velocity Prime" loading="lazy">
+        <img src="assets/images/22.jpg" alt="Stealth Velocity Prime" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Running & Athletic</span>
@@ -400,7 +403,7 @@
     <article class="product-card" data-category="sneakers">
       <div class="product-card-img-wrap">
         <span class="product-badge">Hype</span>
-        <img src="222222.jpg" alt="Neo-Street Chunky Platform" loading="lazy">
+        <img src="assets/images/222222.jpg" alt="Neo-Street Chunky Platform" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Sneakers & Streetwear</span>
@@ -421,7 +424,7 @@
     <article class="product-card" data-category="casual">
       <div class="product-card-img-wrap">
         <span class="product-badge">Essential</span>
-        <img src="1818.jpg" alt="Canvas Low Minimalist" loading="lazy">
+        <img src="assets/images/1818.jpg" alt="Canvas Low Minimalist" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Slip-On & Casual</span>
@@ -442,7 +445,7 @@
     <article class="product-card" data-category="running">
       <div class="product-card-img-wrap">
         <span class="product-badge">Sprint</span>
-        <img src="818.jpg" alt="Kinetic Energy Marathon" loading="lazy">
+        <img src="assets/images/818.jpg" alt="Kinetic Energy Marathon" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Running & Athletic</span>
@@ -463,7 +466,7 @@
     <article class="product-card" data-category="sneakers">
       <div class="product-card-img-wrap">
         <span class="product-badge">Hot Drop</span>
-        <img src="1313.jpg" alt="Urban Pulse Skater" loading="lazy">
+        <img src="assets/images/1313.jpg" alt="Urban Pulse Skater" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Sneakers & Streetwear</span>
@@ -484,7 +487,7 @@
     <article class="product-card" data-category="formal">
       <div class="product-card-img-wrap">
         <span class="product-badge">Distinction</span>
-        <img src="4.jpg" alt="Derby Classic Walnut" loading="lazy">
+        <img src="assets/images/4.jpg" alt="Derby Classic Walnut" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Formal & Leather</span>
@@ -505,7 +508,7 @@
     <article class="product-card" data-category="running">
       <div class="product-card-img-wrap">
         <span class="product-badge">Speed</span>
-        <img src="313.jpg" alt="AeroDash Reflex Runner" loading="lazy">
+        <img src="assets/images/313.jpg" alt="AeroDash Reflex Runner" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Running & Athletic</span>
@@ -526,7 +529,7 @@
     <article class="product-card" data-category="casual">
       <div class="product-card-img-wrap">
         <span class="product-badge">City Pick</span>
-        <img src="12.jpg" alt="Metro Slip Loafer" loading="lazy">
+        <img src="assets/images/12.jpg" alt="Metro Slip Loafer" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Slip-On & Casual</span>
@@ -547,7 +550,7 @@
     <article class="product-card" data-category="sneakers">
       <div class="product-card-img-wrap">
         <span class="product-badge">Street</span>
-        <img src="666.jpg" alt="Gravity High-Top Force" loading="lazy">
+        <img src="assets/images/666.jpg" alt="Gravity High-Top Force" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Sneakers & Streetwear</span>
@@ -568,7 +571,7 @@
     <article class="product-card" data-category="formal">
       <div class="product-card-img-wrap">
         <span class="product-badge">Executive</span>
-        <img src="0099.jpg" alt="Venetian Tassel Loafer" loading="lazy">
+        <img src="assets/images/0099.jpg" alt="Venetian Tassel Loafer" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Formal & Leather</span>
@@ -589,7 +592,7 @@
     <article class="product-card" data-category="running">
       <div class="product-card-img-wrap">
         <span class="product-badge">Endurance</span>
-        <img src="9090.jpg" alt="AuraGlide Cloud Marathoner" loading="lazy">
+        <img src="assets/images/9090.jpg" alt="AuraGlide Cloud Marathoner" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Running & Athletic</span>
@@ -610,7 +613,7 @@
     <article class="product-card" data-category="sneakers">
       <div class="product-card-img-wrap">
         <span class="product-badge">Bold</span>
-        <img src="9900.jpg" alt="Vanguard Modern Trainer" loading="lazy">
+        <img src="assets/images/9900.jpg" alt="Vanguard Modern Trainer" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Sneakers & Streetwear</span>
@@ -631,7 +634,7 @@
     <article class="product-card" data-category="casual">
       <div class="product-card-img-wrap">
         <span class="product-badge">Casual</span>
-        <img src="90.jpg" alt="Zenith Slip-On Comfort" loading="lazy">
+        <img src="assets/images/90.jpg" alt="Zenith Slip-On Comfort" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Slip-On & Casual</span>
@@ -652,7 +655,7 @@
     <article class="product-card" data-category="running">
       <div class="product-card-img-wrap">
         <span class="product-badge">Top Tier</span>
-        <img src="9999.jpg" alt="HyperDrive Track Master" loading="lazy">
+        <img src="assets/images/9999.jpg" alt="HyperDrive Track Master" loading="lazy">
       </div>
       <div class="product-card-body">
         <span class="product-category">Running & Athletic</span>
@@ -678,7 +681,7 @@
       </button>
       <div class="modal-grid">
         <div class="modal-img-wrap">
-          <img id="modalProductImg" src="7.jpg" alt="Shoe detail">
+          <img id="modalProductImg" src="assets/images/7.jpg" alt="Shoe detail">
         </div>
         <div class="modal-details">
           <span class="modal-tag" id="modalProductCategory">Running & Athletic</span>

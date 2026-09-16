@@ -33,7 +33,10 @@
 
   <!-- Sticky Navigation Bar -->
   <nav class="navbar" aria-label="Main Navigation">
-    <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMenu()">
+    <div class="mobile-nav-label">
+      <i class="fa-solid fa-bars-staggered" style="color: var(--primary);"></i> Menu
+    </div>
+    <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
       <div class="toggle-line"></div>
       <div class="toggle-line"></div>
       <div class="toggle-line"></div>
@@ -72,15 +75,15 @@
     <div class="home-demo">
       <div class="demo-card">
         <span class="demo-card-tag">Top Seller</span>
-        <img src="9.jpg" alt="Aero Velocity Sneaker" loading="lazy" />
+        <img src="assets/images/9.jpg" alt="Aero Velocity Sneaker" loading="lazy" />
       </div>
       <div class="demo-card">
         <span class="demo-card-tag">New Edition</span>
-        <img src="555.jpg" alt="Classic Leather Sneaker" loading="lazy" />
+        <img src="assets/images/555.jpg" alt="Classic Leather Sneaker" loading="lazy" />
       </div>
       <div class="demo-card">
         <span class="demo-card-tag">Trending</span>
-        <img src="77777.jpg" alt="Urban Cloud Runner" loading="lazy" />
+        <img src="assets/images/77777.jpg" alt="Urban Cloud Runner" loading="lazy" />
       </div>
     </div>
   </div>
@@ -98,7 +101,7 @@
       <article class="product-card" data-category="running">
         <div class="product-card-img-wrap">
           <span class="product-badge">New</span>
-          <img src="7.jpg" alt="AeroFlex Runner Pro" loading="lazy" />
+          <img src="assets/images/7.jpg" alt="AeroFlex Runner Pro" loading="lazy" />
         </div>
         <div class="product-card-body">
           <span class="product-category">Running & Athletic</span>
@@ -123,7 +126,7 @@
       <article class="product-card" data-category="sneakers">
         <div class="product-card-img-wrap">
           <span class="product-badge">Hot</span>
-          <img src="2.2.jpg" alt="Urban Street Glide V2" loading="lazy" />
+          <img src="assets/images/2.2.jpg" alt="Urban Street Glide V2" loading="lazy" />
         </div>
         <div class="product-card-body">
           <span class="product-category">Casual Sneakers</span>
@@ -148,7 +151,7 @@
       <article class="product-card" data-category="formal">
         <div class="product-card-img-wrap">
           <span class="product-badge">Luxury</span>
-          <img src="7777.jpg" alt="Oxford Heritage Leather" loading="lazy" />
+          <img src="assets/images/7777.jpg" alt="Oxford Heritage Leather" loading="lazy" />
         </div>
         <div class="product-card-body">
           <span class="product-category">Leather & Formal</span>
@@ -173,7 +176,7 @@
       <article class="product-card" data-category="casual">
         <div class="product-card-img-wrap">
           <span class="product-badge">Trending</span>
-          <img src="15.jpg" alt="Vortex Slip-On Comfort" loading="lazy" />
+          <img src="assets/images/15.jpg" alt="Vortex Slip-On Comfort" loading="lazy" />
         </div>
         <div class="product-card-body">
           <span class="product-category">Slip-On & Casual</span>
@@ -214,7 +217,7 @@
     <div class="pq-products">
       <a href="shop.html" class="pq-card">
         <div class="pq-icon-wrap">
-          <img src="brand.png" alt="Top Brands" />
+          <img src="assets/images/brand.png" alt="Top Brands" />
         </div>
         <h3 class="pq-title">Top Brands</h3>
         <p class="pq-desc">Authentic selections from world-renowned athletic and designer footwear icons.</p>
@@ -222,7 +225,7 @@
 
       <a href="shop.html" class="pq-card">
         <div class="pq-icon-wrap">
-          <img src="settings.png" alt="Best Features" />
+          <img src="assets/images/settings.png" alt="Best Features" />
         </div>
         <h3 class="pq-title">Best Features</h3>
         <p class="pq-desc">Orthopedic support, shock absorption, breathable mesh, and waterproof builds.</p>
@@ -230,7 +233,7 @@
 
       <a href="shop.html" class="pq-card">
         <div class="pq-icon-wrap">
-          <img src="scale.png" alt="Shoes Sizing" />
+          <img src="assets/images/scale.png" alt="Shoes Sizing" />
         </div>
         <h3 class="pq-title">Shoes Sizing</h3>
         <p class="pq-desc">Precision size guides and width specifications ensuring your ideal tailored fit.</p>
@@ -238,7 +241,7 @@
 
       <a href="shop.html" class="pq-card">
         <div class="pq-icon-wrap">
-          <img src="slip-on-shoes.png" alt="Shoes Styling" />
+          <img src="assets/images/slip-on-shoes.png" alt="Shoes Styling" />
         </div>
         <h3 class="pq-title">Shoes Styling</h3>
         <p class="pq-desc">Curated trend guides matching casual, formal, athletic, and streetwear aesthetics.</p>
@@ -254,7 +257,7 @@
       </button>
       <div class="modal-grid">
         <div class="modal-img-wrap">
-          <img id="modalProductImg" src="7.jpg" alt="Shoe detail" />
+          <img id="modalProductImg" src="assets/images/7.jpg" alt="Shoe detail" />
         </div>
         <div class="modal-details">
           <span class="modal-tag" id="modalProductCategory">Running & Athletic</span>
