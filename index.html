@@ -5,218 +5,369 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Online Shoes Marketing</title>
+  <title>Online Shoes Marketing - Step into Style & Comfort</title>
+  <!-- Google Fonts & Font Awesome 6.5.1 Live Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="Online Shoes Marketing.css">
   <link rel="stylesheet" href="responsive-index.css">
 </head>
 
 <body>
-  <div class="home-page">
-    <div class="home">
-      <div class="title">
-        <div class="title-text">
-          <h1>nline Shoes Marketing</h1>
-        </div>
-        <div class="title-sbox">
-          <button>Explore Products</button>
-        </div>
-      </div>
-      <!-- nav bar -->
-      <nav class="navbar">
-        <div class="navbar-toggle" onclick="toggleMenu()">
-          <div class="toggle-line"></div>
-          <div class="toggle-line"></div>
-          <div class="toggle-line"></div>
-        </div>
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-      </nav>
+  <!-- Brand Top Header -->
+  <header class="title">
+    <div class="title-text">
+      <a href="index.html" class="brand-logo" aria-label="Online Shoes Marketing">
+        <span class="brand-letter-o">O</span>nline Shoes Marketing
+      </a>
+    </div>
+    <div class="title-sbox">
+      <a href="shop.html" class="btn-explore">
+        <i class="fa-solid fa-bag-shopping"></i> Explore Products
+      </a>
+    </div>
+  </header>
 
-      <!-- home below -->
-      <div class="home-below">
-        <h1>
-          "Step into style and comfort with our exquisite collection of
-          footwear, where fashion meets functionality to elevate every stride
-          you take."
-        </h1>
-        <button>Explore Shop</button>
-      </div>
+  <!-- Sticky Navigation Bar -->
+  <nav class="navbar" aria-label="Main Navigation">
+    <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMenu()">
+      <div class="toggle-line"></div>
+      <div class="toggle-line"></div>
+      <div class="toggle-line"></div>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="shop.html">Shop</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
 
-      <!-- three demo products -->
-      <div class="home-demo">
-        <img src="9.jpg" alt="Shoes" id="demo-products" />
-        <img src="555.jpg" alt="Shoes" id="demo-products" />
-        <img src="77777.jpg" alt="Shoes" id="demo-products" />
+  <!-- Hero Section -->
+  <section class="home-below">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fa-solid fa-sparkles"></i> 2026 Premium Collection
+      </div>
+      <h1>Step into style and comfort with our exquisite collection of footwear.</h1>
+      <p>
+        Where visionary fashion meets engineered performance to elevate every single stride you take. Discover hand-crafted luxury and everyday comfort.
+      </p>
+      <div class="hero-actions">
+        <a href="shop.html" class="btn btn-primary btn-asym">
+          <i class="fa-solid fa-bolt"></i> Explore Shop
+        </a>
+        <a href="#new-arrivals" class="btn btn-outline btn-asym">
+          <i class="fa-solid fa-arrow-down"></i> New Arrivals
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Hero Demo Products -->
+  <div class="home-demo-wrapper">
+    <div class="home-demo">
+      <div class="demo-card">
+        <span class="demo-card-tag">Top Seller</span>
+        <img src="9.jpg" alt="Aero Velocity Sneaker" loading="lazy" />
+      </div>
+      <div class="demo-card">
+        <span class="demo-card-tag">New Edition</span>
+        <img src="555.jpg" alt="Classic Leather Sneaker" loading="lazy" />
+      </div>
+      <div class="demo-card">
+        <span class="demo-card-tag">Trending</span>
+        <img src="77777.jpg" alt="Urban Cloud Runner" loading="lazy" />
       </div>
     </div>
   </div>
 
-  <div class="new-arrivals">
-    <div class="na-heading">
-      <h1>New Arrivals</h1>
+  <!-- New Arrivals Section -->
+  <section class="new-arrivals" id="new-arrivals">
+    <div class="section-header">
+      <span class="section-tag">Fresh Drops</span>
+      <h2 class="section-title">New Arrivals</h2>
+      <p class="section-subtitle">Crafted with breathable materials, ergonomic arches, and head-turning urban silhouettes.</p>
     </div>
+
     <div class="na-products">
-      <div class="na-p-1" id="na-products">
-        <div class="na-p-1-image" id="na-products-images">
-          <img src="7.jpg" alt="" />
+      <!-- Product 1 -->
+      <article class="product-card" data-category="running">
+        <div class="product-card-img-wrap">
+          <span class="product-badge">New</span>
+          <img src="7.jpg" alt="AeroFlex Runner Pro" loading="lazy" />
         </div>
-        <div class="na-p-1-desc" id="na-products-desc">
-          <h3>
-            dolor sit amet consectetur adipisicing elit. Adipisci,
-            reprehenderit.
-          </h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
-            atque, optio quam reiciendis error consectetur facilis ut
-            repellendus ?
-          </p>
+        <div class="product-card-body">
+          <span class="product-category">Running & Athletic</span>
+          <h3 class="product-title">AeroFlex Runner Pro</h3>
+          <div class="product-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <span>(4.8)</span>
+          </div>
+          <p class="product-desc">Ultra-lightweight mesh upper paired with high-rebound cushioning for marathons and daily training.</p>
+          <div class="product-footer">
+            <div class="product-price">$89.99 <span class="old-price">$119.99</span></div>
+            <button class="btn-card-action">See Detail</button>
+          </div>
         </div>
-      </div>
-      <div class="na-p-2" id="na-products">
-        <div class="na-p-2-image" id="na-products-images">
-          <img src="2.2.jpg" alt="" />
-        </div>
-        <div class="na-p-2-desc" id="na-products-desc">
-          <h3>
-            Lorem ipsum dolor sitr adipisicing elit. Adipisci, reprehenderit.
-          </h3>
-          <p>
-            Loreadipisicing elit. Iste atque, optio quam reiciendis error
-            consectetur facilis ut repellendus quos quod?
-          </p>
-        </div>
-      </div>
-      <div class="na-p-3" id="na-products">
-        <div class="na-p-3-image" id="na-products-images">
-          <img src="7777.jpg" alt="" />
-        </div>
-        <div class="na-p-3-desc" id="na-products-desc">
-          <h3>
-            Lorem ipsum dolor sit r adipisicing elit. Adipisci, reprehenderit.
-          </h3>
-          <p>
-            Lorem ipsum dolor si adipisicing elit. Iste atque, optio quam
-            reiciendis error consectetur facilis ut repellendus quos quod?
-          </p>
-        </div>
-      </div>
-      <div class="na-p-4" id="na-products">
-        <div class="na-p-4-image" id="na-products-images">
-          <img src="15.jpg" alt="" />
-        </div>
-        <div class="na-p-4-desc" id="na-products-desc">
-          <h3>
-            Lorem ipsum dolor sit consectetur adipisicing elit. Adipisci,
-            reprehenderit.
-          </h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
-            atque, optio quam reiciendis error consectetur facilis ut?
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+      </article>
 
-  <!-- addvertiser -->
-  <div class="addvertiser">
-    <h1>Explore the best amazon footware products</h1>
-    <div class="help">WE help you find quality?</div>
-  </div>
+      <!-- Product 2 -->
+      <article class="product-card" data-category="sneakers">
+        <div class="product-card-img-wrap">
+          <span class="product-badge">Hot</span>
+          <img src="2.2.jpg" alt="Urban Street Glide V2" loading="lazy" />
+        </div>
+        <div class="product-card-body">
+          <span class="product-category">Casual Sneakers</span>
+          <h3 class="product-title">Urban Street Glide V2</h3>
+          <div class="product-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <span>(5.0)</span>
+          </div>
+          <p class="product-desc">Minimalist silhouette engineered with plush ankle collars and premium wear-resistant rubber sole.</p>
+          <div class="product-footer">
+            <div class="product-price">$94.50 <span class="old-price">$125.00</span></div>
+            <button class="btn-card-action">See Detail</button>
+          </div>
+        </div>
+      </article>
 
-  <!-- Quality -->
-  <div class="products-quality">
-    <div class="pq-heading">
-      <h1>Product Categories</h1>
+      <!-- Product 3 -->
+      <article class="product-card" data-category="formal">
+        <div class="product-card-img-wrap">
+          <span class="product-badge">Luxury</span>
+          <img src="7777.jpg" alt="Oxford Heritage Leather" loading="lazy" />
+        </div>
+        <div class="product-card-body">
+          <span class="product-category">Leather & Formal</span>
+          <h3 class="product-title">Oxford Heritage Leather</h3>
+          <div class="product-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <span>(4.7)</span>
+          </div>
+          <p class="product-desc">Hand-buffed genuine full-grain leather providing timeless distinction for boardroom elegance.</p>
+          <div class="product-footer">
+            <div class="product-price">$129.00 <span class="old-price">$160.00</span></div>
+            <button class="btn-card-action">See Detail</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Product 4 -->
+      <article class="product-card" data-category="casual">
+        <div class="product-card-img-wrap">
+          <span class="product-badge">Trending</span>
+          <img src="15.jpg" alt="Vortex Slip-On Comfort" loading="lazy" />
+        </div>
+        <div class="product-card-body">
+          <span class="product-category">Slip-On & Casual</span>
+          <h3 class="product-title">Vortex Slip-On Comfort</h3>
+          <div class="product-rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+            <span>(4.6)</span>
+          </div>
+          <p class="product-desc">Effortless slip-on architecture engineered with adaptive memory foam insoles for non-stop comfort.</p>
+          <div class="product-footer">
+            <div class="product-price">$79.99 <span class="old-price">$99.00</span></div>
+            <button class="btn-card-action">See Detail</button>
+          </div>
+        </div>
+      </article>
     </div>
+  </section>
+
+  <!-- Advertiser Promo Banner -->
+  <section class="addvertiser">
+    <h1>Explore the Best Curated Footwear & International Brands</h1>
+    <p>We connect you with authenticated, top-rated shoe models from premier global marketplaces.</p>
+    <a href="shop.html" class="help">We Help You Find Quality &rsaquo;</a>
+  </section>
+
+  <!-- Product Categories / Quality -->
+  <section class="products-quality">
+    <div class="section-header">
+      <span class="section-tag">Explore Collections</span>
+      <h2 class="section-title">Product Categories</h2>
+      <p class="section-subtitle">Discover precision craftsmanship built for athletic performance, formal distinction, and casual flair.</p>
+    </div>
+
     <div class="pq-products">
-      <div class="pq-p-1" id="pq-products">
-        <div class="pq-p-1-image" id="pq-products-images">
-          <img src="brand.png" alt="" />
+      <a href="shop.html" class="pq-card">
+        <div class="pq-icon-wrap">
+          <img src="brand.png" alt="Top Brands" />
         </div>
-        <div class="pq-p-1-desc" id="pq-products-desc">
-          <h2>Brands</h2>
+        <h3 class="pq-title">Top Brands</h3>
+        <p class="pq-desc">Authentic selections from world-renowned athletic and designer footwear icons.</p>
+      </a>
+
+      <a href="shop.html" class="pq-card">
+        <div class="pq-icon-wrap">
+          <img src="settings.png" alt="Best Features" />
         </div>
-      </div>
-      <div class="pq-p-2" id="pq-products">
-        <div class="pq-p-2-image" id="pq-products-images">
-          <img src="settings.png" alt="" />
+        <h3 class="pq-title">Best Features</h3>
+        <p class="pq-desc">Orthopedic support, shock absorption, breathable mesh, and waterproof builds.</p>
+      </a>
+
+      <a href="shop.html" class="pq-card">
+        <div class="pq-icon-wrap">
+          <img src="scale.png" alt="Shoes Sizing" />
         </div>
-        <div class="pq-p-2-desc" id="pq-products-desc">
-          <h2>Best Features</h2>
+        <h3 class="pq-title">Shoes Sizing</h3>
+        <p class="pq-desc">Precision size guides and width specifications ensuring your ideal tailored fit.</p>
+      </a>
+
+      <a href="shop.html" class="pq-card">
+        <div class="pq-icon-wrap">
+          <img src="slip-on-shoes.png" alt="Shoes Styling" />
         </div>
-      </div>
-      <div class="pq-p-3" id="pq-products">
-        <div class="pq-p-3-image" id="pq-products-images">
-          <img src="scale.png" alt="" />
+        <h3 class="pq-title">Shoes Styling</h3>
+        <p class="pq-desc">Curated trend guides matching casual, formal, athletic, and streetwear aesthetics.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Product Detail Modal -->
+  <div class="modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-container">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-grid">
+        <div class="modal-img-wrap">
+          <img id="modalProductImg" src="7.jpg" alt="Shoe detail" />
         </div>
-        <div class="pq-p-3-desc" id="pq-products-desc">
-          <h2>Shoes Sizing</h2>
-        </div>
-      </div>
-      <div class="pq-p-4" id="pq-products">
-        <div class="pq-p-4-image" id="pq-products-images">
-          <img src="slip-on-shoes.png" alt="" />
-        </div>
-        <div class="pq-p-4-desc" id="pq-products-desc">
-          <h2>Shoes Styling</h2>
+        <div class="modal-details">
+          <span class="modal-tag" id="modalProductCategory">Running & Athletic</span>
+          <h2 class="modal-title" id="modalProductTitle">AeroFlex Runner Pro</h2>
+          <div class="modal-price" id="modalProductPrice">$89.99</div>
+          <p class="modal-desc" id="modalProductDesc">
+            Crafted with breathable mesh, adaptive arch cushioning, and responsive soles. Perfect for daily workouts and casual city exploration.
+          </p>
+          <div class="size-selector-label">Select US Shoe Size:</div>
+          <div class="size-buttons">
+            <button class="size-btn">7</button>
+            <button class="size-btn">8</button>
+            <button class="size-btn active">9</button>
+            <button class="size-btn">10</button>
+            <button class="size-btn">11</button>
+          </div>
+          <button class="btn btn-primary btn-asym" id="modalAddToCartBtn">
+            <i class="fa-solid fa-cart-plus"></i> Add To Cart
+          </button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- footer -->
-  <div class="footer">
-    <div class="categories" id="footer-fid">
-      <h3>Categories</h3>
-      <div class="c-names" id="footer-ide">
-        <a href="#">Brands</a>
-        <a href="#">Best Features</a>
-        <a href="#">Shoes Sizing</a>
-        <a href="#">Shoes Styling</a>
+  <!-- Modern Clean Footer with Live Icons -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <!-- Column 1: Brand -->
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="brand-logo">
+          <span class="brand-letter-o">O</span>nline Shoes Marketing
+        </a>
+        <p>
+          Your premier online shoe destination in Pakistan. Curating world-class athletic sneakers, formal classics, and everyday comfort with guaranteed authenticity.
+        </p>
       </div>
-    </div>
-    <div class="contact" id="footer-fid">
-      <h3>Contact Us</h3>
-      <div class="c-numbers" id="footer-idee">
-        <p>ronlinesm@gmail.com</p>
-        <p>+2342343258</p>
-        <p>+3483445567</p>
-        <p>+rosmoulook.com</p>
-      </div>
-    </div>
-    <div class="quick-links" id="footer-fid">
-      <h3>Contact Us</h3>
-      <div class="q-links" id="footer-ide">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Shop</a>
-        <a href="#">Contact</a>
-      </div>
-    </div>
-    <div class="follow" id="footer-fid">
-      <h3>Follow Us on</h3>
-      <div class="q-links" id="footer-ide-last">
-        <a href="#" aria-label="Instagram"><img src="instagram.png" alt="Instagram" /></a>
-        <a href="#" aria-label="Facebook"><img src="facebook.png" alt="Facebook" /></a>
-        <a href="#" aria-label="TikTok"><img src="tiktok.png" alt="TikTok" /></a>
-        <a href="#" aria-label="WhatsApp"><img src="whatsapp.png" alt="WhatsApp" /></a>
-        <a href="#" aria-label="Telegram"><img src="send.png" alt="Telegram" /></a>
-      </div>
-    </div>
-  </div>
 
-  <!-- copyright -->
+      <!-- Column 2: Quick Links -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+          <li><a href="about.html"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
+          <li><a href="shop.html"><i class="fa-solid fa-angle-right"></i> Shop Collection</a></li>
+          <li><a href="contact.html"><i class="fa-solid fa-angle-right"></i> Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Categories -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Categories</h4>
+        <ul class="footer-links">
+          <li><a href="shop.html"><i class="fa-solid fa-angle-right"></i> Running & Athletic</a></li>
+          <li><a href="shop.html"><i class="fa-solid fa-angle-right"></i> Casual Sneakers</a></li>
+          <li><a href="shop.html"><i class="fa-solid fa-angle-right"></i> Leather & Formal</a></li>
+          <li><a href="shop.html"><i class="fa-solid fa-angle-right"></i> Slip-On & Comfort</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Contact & Live Social Icons -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Connect With Us</h4>
+        <ul class="footer-contact-list">
+          <li class="footer-contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:ronlinesm@gmail.com">ronlinesm@gmail.com</a>
+          </li>
+          <li class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+923001234567">+92 300 1234567</a>
+          </li>
+          <li class="footer-contact-item">
+            <i class="fa-brands fa-whatsapp"></i>
+            <a href="https://wa.me/923001234567" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
+          </li>
+        </ul>
+
+        <!-- LIVE SOCIAL ICONS (Replaces all deleted png images) -->
+        <div class="social-icons-wrapper">
+          <a href="https://www.instagram.com" class="social-btn instagram" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com" class="social-btn facebook" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.tiktok.com" class="social-btn tiktok" aria-label="Follow us on TikTok" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+          <a href="https://wa.me/923001234567" class="social-btn whatsapp" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://t.me/OnlineShoesMarketing" class="social-btn telegram" aria-label="Join our Telegram" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://www.youtube.com" class="social-btn youtube" aria-label="Watch us on YouTube" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Copyright Bar -->
   <div class="c-r">
-    copyright © Online Shoes marketing. All rights reserved. owner (Rahim
-    Ullah)
+    <div>
+      Copyright &copy; 2026 <strong>Online Shoes Marketing</strong>. All rights reserved.
+    </div>
+    <div>
+      Designed & Engineered with &hearts; by <strong>Rahim Ullah</strong>
+    </div>
   </div>
 
-  <!-- js link -->
+  <!-- JavaScript -->
   <script src="script.js"></script>
 </body>
 

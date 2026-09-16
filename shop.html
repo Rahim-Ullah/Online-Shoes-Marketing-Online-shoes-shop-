@@ -5,447 +5,794 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop</title>
-  <link rel="stylesheet" href="responsive-shop.css">
+  <title>Shop All Shoes - Online Shoes Marketing</title>
+  <!-- Google Fonts & Font Awesome 6.5.1 Live Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="Online Shoes Marketing.css">
-  <style>
-    .our-products {
-      /* background-color: #b24305; */
-      box-sizing: border-box;
-      padding: 0rem 9%;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      grid-gap: 1rem;
-      margin-bottom: 2rem;
-    }
-
-    #products {
-      /* background-color: aqua; */
-      border-radius: 0 30px 0 30px;
-      display: flex;
-      flex-direction: column;
-      gap: .5rem;
-      padding: .6rem .6rem .5rem .6rem;
-      box-shadow: .5px 10px 10px rgba(220, 220, 220, 0.5);
-    }
-
-    #products img {
-      border-radius: 0 30px 0 30px;
-    }
-    #products h3{
-      font-size: 1rem;
-    }
-
-    #products input {
-      width: fit-content;
-      padding: .3rem 1.3rem;
-      border-radius: 20px;
-      color: white;
-      background-color: #b24305;
-      border: 1px solid transparent;
-    }
-
-    #products input:hover {
-      background-color: transparent;
-      color: #b24305;
-      border: 1px solid #b24305;
-      transition: all .4s ease-in-out 0s;
-    }
-
-    @media screen  and (max-width: 992px) {
-      .our-products{
-        padding: 0rem 5%;
-      }
-    }
-    @media screen  and (max-width: 860px) {
-      .our-products {
-      box-sizing: border-box;
-      padding: 0rem 6%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    }
-    @media screen and (max-width: 480px){
-      .our-products {
-      display: grid;
-      grid-template-columns: 1fr;
-    }
-
-    
-#searchInput {
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px 0 0 5px;
-  width: 80%;
-  outline: none;
-}
-    }
-  </style>
+  <link rel="stylesheet" href="responsive-index.css">
 </head>
 
 <body>
-  <div class="home-page">
-    <div class="home">
-      <div class="title">
-        <div class="title-text">
-          <h1>nline Shoes Marketing</h1>
+  <!-- Brand Top Header -->
+  <header class="title">
+    <div class="title-text">
+      <a href="index.html" class="brand-logo" aria-label="Online Shoes Marketing">
+        <span class="brand-letter-o">O</span>nline Shoes Marketing
+      </a>
+    </div>
+    <div class="title-sbox">
+      <a href="shop.html" class="btn-explore">
+        <i class="fa-solid fa-bag-shopping"></i> Explore Products
+      </a>
+    </div>
+  </header>
+
+  <!-- Sticky Navigation Bar -->
+  <nav class="navbar" aria-label="Main Navigation">
+    <button class="navbar-toggle" aria-label="Toggle navigation menu" aria-expanded="false" onclick="toggleMenu()">
+      <div class="toggle-line"></div>
+      <div class="toggle-line"></div>
+      <div class="toggle-line"></div>
+    </button>
+    <ul class="nav-menu" id="navMenu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="shop.html" class="active">Shop</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Shop Hero Banner -->
+  <section class="shop-hero">
+    <div class="hero-badge">
+      <i class="fa-solid fa-tag"></i> Authentic Collections
+    </div>
+    <h1>Explore The Complete Footwear Catalog</h1>
+    <p>Discover high-performance running kicks, iconic street sneakers, timeless formal dress shoes, and casual slip-ons.</p>
+  </section>
+
+  <!-- Search & Filter Controls -->
+  <section class="shop-controls">
+    <div class="search-filter-row">
+      <!-- Search Input -->
+      <div class="search-container">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="searchInput" placeholder="Search shoes by name, style, or category..." autocomplete="off">
+        <button id="searchBtn">Search</button>
+      </div>
+
+      <!-- Live Count -->
+      <div class="results-count" id="resultsCount">Showing 28 products</div>
+    </div>
+
+    <!-- Category Filter Pills -->
+    <div class="category-pills">
+      <button class="filter-pill active" data-filter="all">All Shoes</button>
+      <button class="filter-pill" data-filter="running">Running & Athletic</button>
+      <button class="filter-pill" data-filter="sneakers">Sneakers & Streetwear</button>
+      <button class="filter-pill" data-filter="formal">Formal & Leather</button>
+      <button class="filter-pill" data-filter="casual">Slip-On & Casual</button>
+    </div>
+  </section>
+
+  <!-- Products Grid (All 28 Curated Models) -->
+  <main class="our-products">
+    <!-- Item 1 -->
+    <article class="product-card" data-category="running">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Best Seller</span>
+        <img src="7.jpg" alt="AeroFlex Runner Pro" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Running & Athletic</span>
+        <h3 class="product-title">AeroFlex Runner Pro</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+          <span>(4.8)</span>
         </div>
-        <div class="title-sbox">
-          <button>Explore Products</button>
+        <p class="product-desc">Engineered lightweight mesh upper with energy-returning nitrogen foam midsole.</p>
+        <div class="product-footer">
+          <div class="product-price">$89.99 <span class="old-price">$119.99</span></div>
+          <button class="btn-card-action">See Detail</button>
         </div>
       </div>
-      <!-- nav bar -->
-      <nav class="navbar">
-        <div class="navbar-toggle" onclick="toggleMenu()">
-          <div class="toggle-line"></div>
-          <div class="toggle-line"></div>
-          <div class="toggle-line"></div>
+    </article>
+
+    <!-- Item 2 -->
+    <article class="product-card" data-category="sneakers">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Trending</span>
+        <img src="2.2.jpg" alt="Urban Street Glide V2" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Sneakers & Streetwear</span>
+        <h3 class="product-title">Urban Street Glide V2</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <span>(5.0)</span>
         </div>
-        <ul class="nav-menu" id="navMenu">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+        <p class="product-desc">Contemporary low-profile sneaker with reinforced heel cup and high-traction rubber outsole.</p>
+        <div class="product-footer">
+          <div class="product-price">$94.50 <span class="old-price">$125.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 3 -->
+    <article class="product-card" data-category="formal">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Luxury</span>
+        <img src="7777.jpg" alt="Oxford Heritage Leather" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Formal & Leather</span>
+        <h3 class="product-title">Oxford Heritage Leather</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+          <span>(4.7)</span>
+        </div>
+        <p class="product-desc">Full-grain calfskin leather handcrafted with classic Goodyear welt construction.</p>
+        <div class="product-footer">
+          <div class="product-price">$129.00 <span class="old-price">$160.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 4 -->
+    <article class="product-card" data-category="casual">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Popular</span>
+        <img src="15.jpg" alt="Vortex Slip-On Comfort" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Slip-On & Casual</span>
+        <h3 class="product-title">Vortex Slip-On Comfort</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+          <span>(4.6)</span>
+        </div>
+        <p class="product-desc">Elastic stretch knit collar offering hands-free on/off and cloud-like arch padding.</p>
+        <div class="product-footer">
+          <div class="product-price">$79.99 <span class="old-price">$99.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 5 -->
+    <article class="product-card" data-category="running">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">New</span>
+        <img src="0 (1).jpg" alt="HyperSpeed Carbon Racer" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Running & Athletic</span>
+        <h3 class="product-title">HyperSpeed Carbon Racer</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <span>(4.9)</span>
+        </div>
+        <p class="product-desc">Embedded carbon fiber propulsion plate engineered for high-intensity race pace.</p>
+        <div class="product-footer">
+          <div class="product-price">$149.99 <span class="old-price">$189.99</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 6 -->
+    <article class="product-card" data-category="sneakers">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Classic</span>
+        <img src="0 (2).jpg" alt="Retro Court Mid-Top" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Sneakers & Streetwear</span>
+        <h3 class="product-title">Retro Court Mid-Top</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+          <span>(4.7)</span>
+        </div>
+        <p class="product-desc">Padded collar and throwback 90s court design with perforated leather toe box.</p>
+        <div class="product-footer">
+          <div class="product-price">$105.00 <span class="old-price">$130.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 7 -->
+    <article class="product-card" data-category="casual">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Daily Pick</span>
+        <img src="0 (3).jpg" alt="Breeze Knit Loafer" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Slip-On & Casual</span>
+        <h3 class="product-title">Breeze Knit Loafer</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+          <span>(4.5)</span>
+        </div>
+        <p class="product-desc">Ultra-breathable weave ideal for warm weather wear with water-resistant coating.</p>
+        <div class="product-footer">
+          <div class="product-price">$69.99 <span class="old-price">$89.99</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 8 -->
+    <article class="product-card" data-category="running">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Pro Series</span>
+        <img src="0 (4).jpg" alt="TrailBlazer All-Terrain" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Running & Athletic</span>
+        <h3 class="product-title">TrailBlazer All-Terrain</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <span>(4.9)</span>
+        </div>
+        <p class="product-desc">Aggressive 5mm multi-directional lugs ensuring rock-solid grip on mud and gravel trails.</p>
+        <div class="product-footer">
+          <div class="product-price">$119.50 <span class="old-price">$145.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 9 -->
+    <article class="product-card" data-category="sneakers">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Exclusive</span>
+        <img src="0 (5).jpg" alt="Apex Monochrome Runner" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Sneakers & Streetwear</span>
+        <h3 class="product-title">Apex Monochrome Runner</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+          <span>(4.8)</span>
+        </div>
+        <p class="product-desc">Sleek matte tonal styling combined with dual-density foam shock mitigation.</p>
+        <div class="product-footer">
+          <div class="product-price">$98.00 <span class="old-price">$120.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 10 -->
+    <article class="product-card" data-category="formal">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Elegance</span>
+        <img src="0 (6).jpg" alt="Chelsea Italian Boot" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Formal & Leather</span>
+        <h3 class="product-title">Chelsea Italian Boot</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <span>(5.0)</span>
+        </div>
+        <p class="product-desc">Artisanal burnished leather ankle boot featuring flexible side gussets and stacked heel.</p>
+        <div class="product-footer">
+          <div class="product-price">$159.00 <span class="old-price">$195.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 11 -->
+    <article class="product-card" data-category="running">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Performance</span>
+        <img src="0 (8).jpg" alt="Velocity Max Air-Stride" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Running & Athletic</span>
+        <h3 class="product-title">Velocity Max Air-Stride</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+          <span>(4.7)</span>
+        </div>
+        <p class="product-desc">Visible air chamber cushion delivering superior impact protection on hard pavement.</p>
+        <div class="product-footer">
+          <div class="product-price">$110.00 <span class="old-price">$140.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 12 -->
+    <article class="product-card" data-category="casual">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Warm Comfort</span>
+        <img src="0 (9).jpg" alt="CloudStep Comfort Moccasin" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Slip-On & Casual</span>
+        <h3 class="product-title">CloudStep Comfort Moccasin</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+          <span>(4.6)</span>
+        </div>
+        <p class="product-desc">Supple suede leather with hand-sewn moc toe stitching and plush fur lining.</p>
+        <div class="product-footer">
+          <div class="product-price">$74.50 <span class="old-price">$95.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 13 -->
+    <article class="product-card" data-category="sneakers">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Retro</span>
+        <img src="0 (10).jpg" alt="Shadow Walk High-Top" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Sneakers & Streetwear</span>
+        <h3 class="product-title">Shadow Walk High-Top</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+          <span>(4.8)</span>
+        </div>
+        <p class="product-desc">Ankle support padding with vintage contrast piping and cupsole grip.</p>
+        <div class="product-footer">
+          <div class="product-price">$92.00 <span class="old-price">$115.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 14 -->
+    <article class="product-card" data-category="formal">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Premium</span>
+        <img src="0 (11).jpg" alt="Monk Strap Executive" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Formal & Leather</span>
+        <h3 class="product-title">Monk Strap Executive</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <span>(4.9)</span>
+        </div>
+        <p class="product-desc">Polished brass buckle double monk strap in rich dark cognac burnished finish.</p>
+        <div class="product-footer">
+          <div class="product-price">$135.00 <span class="old-price">$170.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 15 -->
+    <article class="product-card" data-category="running">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Special</span>
+        <img src="22.jpg" alt="Stealth Velocity Prime" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Running & Athletic</span>
+        <h3 class="product-title">Stealth Velocity Prime</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+          <span>(4.7)</span>
+        </div>
+        <p class="product-desc">Featherweight engineered upper with reflective safety elements for dusk running.</p>
+        <div class="product-footer">
+          <div class="product-price">$99.99 <span class="old-price">$129.99</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 16 -->
+    <article class="product-card" data-category="sneakers">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Hype</span>
+        <img src="222222.jpg" alt="Neo-Street Chunky Platform" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Sneakers & Streetwear</span>
+        <h3 class="product-title">Neo-Street Chunky Platform</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <span>(5.0)</span>
+        </div>
+        <p class="product-desc">Bold exaggerated sculpted sole paired with multi-texture leather and canvas paneling.</p>
+        <div class="product-footer">
+          <div class="product-price">$115.00 <span class="old-price">$150.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 17 -->
+    <article class="product-card" data-category="casual">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Essential</span>
+        <img src="1818.jpg" alt="Canvas Low Minimalist" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Slip-On & Casual</span>
+        <h3 class="product-title">Canvas Low Minimalist</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+          <span>(4.4)</span>
+        </div>
+        <p class="product-desc">Timeless canvas vulcanized construction designed for relaxed weekend errands.</p>
+        <div class="product-footer">
+          <div class="product-price">$54.99 <span class="old-price">$70.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 18 -->
+    <article class="product-card" data-category="running">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Sprint</span>
+        <img src="818.jpg" alt="Kinetic Energy Marathon" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Running & Athletic</span>
+        <h3 class="product-title">Kinetic Energy Marathon</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+          <span>(4.8)</span>
+        </div>
+        <p class="product-desc">Aerodynamic silhouette featuring high-density TPU stability heel clip.</p>
+        <div class="product-footer">
+          <div class="product-price">$125.00 <span class="old-price">$155.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 19 -->
+    <article class="product-card" data-category="sneakers">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Hot Drop</span>
+        <img src="1313.jpg" alt="Urban Pulse Skater" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Sneakers & Streetwear</span>
+        <h3 class="product-title">Urban Pulse Skater</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <span>(4.9)</span>
+        </div>
+        <p class="product-desc">Abrasion-resistant suede toe cap with vulcanized herringbone board-feel sole.</p>
+        <div class="product-footer">
+          <div class="product-price">$88.00 <span class="old-price">$110.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 20 -->
+    <article class="product-card" data-category="formal">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Distinction</span>
+        <img src="4.jpg" alt="Derby Classic Walnut" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Formal & Leather</span>
+        <h3 class="product-title">Derby Classic Walnut</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+          <span>(4.7)</span>
+        </div>
+        <p class="product-desc">Open-lacing Derby construction offering exceptional foot instep accommodation.</p>
+        <div class="product-footer">
+          <div class="product-price">$119.00 <span class="old-price">$149.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 21 -->
+    <article class="product-card" data-category="running">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Speed</span>
+        <img src="313.jpg" alt="AeroDash Reflex Runner" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Running & Athletic</span>
+        <h3 class="product-title">AeroDash Reflex Runner</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <span>(4.8)</span>
+        </div>
+        <p class="product-desc">Ergonomic forefoot flex grooves promoting natural, rapid toe-off transitions.</p>
+        <div class="product-footer">
+          <div class="product-price">$95.00 <span class="old-price">$120.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 22 -->
+    <article class="product-card" data-category="casual">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">City Pick</span>
+        <img src="12.jpg" alt="Metro Slip Loafer" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Slip-On & Casual</span>
+        <h3 class="product-title">Metro Slip Loafer</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+          <span>(4.5)</span>
+        </div>
+        <p class="product-desc">Supple glove leather lining with removable orthopedic support insoles.</p>
+        <div class="product-footer">
+          <div class="product-price">$82.00 <span class="old-price">$105.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 23 -->
+    <article class="product-card" data-category="sneakers">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Street</span>
+        <img src="666.jpg" alt="Gravity High-Top Force" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Sneakers & Streetwear</span>
+        <h3 class="product-title">Gravity High-Top Force</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+          <span>(4.7)</span>
+        </div>
+        <p class="product-desc">Thick padded tongue and ankle harness designed for high-impact skating and street fashion.</p>
+        <div class="product-footer">
+          <div class="product-price">$108.00 <span class="old-price">$135.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 24 -->
+    <article class="product-card" data-category="formal">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Executive</span>
+        <img src="0099.jpg" alt="Venetian Tassel Loafer" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Formal & Leather</span>
+        <h3 class="product-title">Venetian Tassel Loafer</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <span>(4.9)</span>
+        </div>
+        <p class="product-desc">Polished hand-rubbed finish with twin decorative leather tassels and leather sole.</p>
+        <div class="product-footer">
+          <div class="product-price">$139.99 <span class="old-price">$175.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 25 -->
+    <article class="product-card" data-category="running">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Endurance</span>
+        <img src="9090.jpg" alt="AuraGlide Cloud Marathoner" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Running & Athletic</span>
+        <h3 class="product-title">AuraGlide Cloud Marathoner</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+          <span>(4.8)</span>
+        </div>
+        <p class="product-desc">Supercritical EVA foam with targeted arch support for long-distance training runs.</p>
+        <div class="product-footer">
+          <div class="product-price">$114.00 <span class="old-price">$145.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 26 -->
+    <article class="product-card" data-category="sneakers">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Bold</span>
+        <img src="9900.jpg" alt="Vanguard Modern Trainer" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Sneakers & Streetwear</span>
+        <h3 class="product-title">Vanguard Modern Trainer</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <span>(4.9)</span>
+        </div>
+        <p class="product-desc">Contrast heel tab, streamlined silhouette, and shock-absorbing air bubbles.</p>
+        <div class="product-footer">
+          <div class="product-price">$96.00 <span class="old-price">$120.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 27 -->
+    <article class="product-card" data-category="casual">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Casual</span>
+        <img src="90.jpg" alt="Zenith Slip-On Comfort" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Slip-On & Casual</span>
+        <h3 class="product-title">Zenith Slip-On Comfort</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i>
+          <span>(4.6)</span>
+        </div>
+        <p class="product-desc">Lightweight cushioned sole providing exceptional ease for indoor and outdoor wear.</p>
+        <div class="product-footer">
+          <div class="product-price">$65.00 <span class="old-price">$85.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+
+    <!-- Item 28 -->
+    <article class="product-card" data-category="running">
+      <div class="product-card-img-wrap">
+        <span class="product-badge">Top Tier</span>
+        <img src="9999.jpg" alt="HyperDrive Track Master" loading="lazy">
+      </div>
+      <div class="product-card-body">
+        <span class="product-category">Running & Athletic</span>
+        <h3 class="product-title">HyperDrive Track Master</h3>
+        <div class="product-rating">
+          <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+          <span>(5.0)</span>
+        </div>
+        <p class="product-desc">Advanced responsive sole unit engineered for maximum energy propulsion and grip.</p>
+        <div class="product-footer">
+          <div class="product-price">$130.00 <span class="old-price">$165.00</span></div>
+          <button class="btn-card-action">See Detail</button>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- Product Detail Modal -->
+  <div class="modal-overlay" id="productModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-container">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div class="modal-grid">
+        <div class="modal-img-wrap">
+          <img id="modalProductImg" src="7.jpg" alt="Shoe detail">
+        </div>
+        <div class="modal-details">
+          <span class="modal-tag" id="modalProductCategory">Running & Athletic</span>
+          <h2 class="modal-title" id="modalProductTitle">AeroFlex Runner Pro</h2>
+          <div class="modal-price" id="modalProductPrice">$89.99</div>
+          <p class="modal-desc" id="modalProductDesc">
+            Crafted with breathable mesh, adaptive arch cushioning, and responsive soles. Perfect for daily workouts and casual city exploration.
+          </p>
+          <div class="size-selector-label">Select US Shoe Size:</div>
+          <div class="size-buttons">
+            <button class="size-btn">7</button>
+            <button class="size-btn">8</button>
+            <button class="size-btn active">9</button>
+            <button class="size-btn">10</button>
+            <button class="size-btn">11</button>
+          </div>
+          <button class="btn btn-primary btn-asym" id="modalAddToCartBtn">
+            <i class="fa-solid fa-cart-plus"></i> Add To Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modern Clean Footer with Live Icons -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <!-- Column 1: Brand -->
+      <div class="footer-col footer-brand">
+        <a href="index.html" class="brand-logo">
+          <span class="brand-letter-o">O</span>nline Shoes Marketing
+        </a>
+        <p>
+          Your premier online shoe destination in Pakistan. Curating world-class athletic sneakers, formal classics, and everyday comfort with guaranteed authenticity.
+        </p>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html"><i class="fa-solid fa-angle-right"></i> Home</a></li>
+          <li><a href="about.html"><i class="fa-solid fa-angle-right"></i> About Us</a></li>
+          <li><a href="shop.html"><i class="fa-solid fa-angle-right"></i> Shop Collection</a></li>
+          <li><a href="contact.html"><i class="fa-solid fa-angle-right"></i> Contact Us</a></li>
         </ul>
-      </nav>
-      <!-- search bar -->
-      <div class="searching">
-        <div class="search-container">
-          <input type="text" id="searchInput" placeholder="Search...">
-          <button id="searchBtn">Search</button>
-        </div>
-
-        <div id="searchResults">
-          <!-- Search results will be displayed here -->
-        </div>
       </div>
 
-      <!-- our-products -->
-      <div class="our-products">
-        <div class="p-1" id="products">
-          <div class="p-1-image" id="products-images">
-            <img src="7.jpg" alt="">
-          </div>
-          <div class="na-p-1-desc" id="products-desc">
-            <h3>dolor sit amet consectetur adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-2" id="products">
-          <div class="p-2-image" id="products-images">
-            <img src="2.2.jpg" alt="">
-          </div>
-          <div class="p-2-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sitr adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-3" id="products">
-          <div class="p-3-image" id="products-images">
-            <img src="7777.jpg" alt="">
-          </div>
-          <div class="p-3-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sit r adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-4" id="products">
-          <div class="p-4-image" id="products-images">
-            <img src="15.jpg" alt="">
-          </div>
-          <div class="p-4-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sit consectetur adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-1" id="products">
-          <div class="p-1-image" id="products-images">
-            <img src="0 (1).jpg" alt="">
-          </div>
-          <div class="na-p-1-desc" id="products-desc">
-            <h3>dolor sit amet consectetur adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-2" id="products">
-          <div class="p-2-image" id="products-images">
-            <img src="0 (2).jpg" alt="">
-          </div>
-          <div class="p-2-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sitr adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-3" id="products">
-          <div class="p-3-image" id="products-images">
-            <img src="0 (3).jpg" alt="">
-          </div>
-          <div class="p-3-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sit r adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-4" id="products">
-          <div class="p-4-image" id="products-images">
-            <img src="0 (4).jpg" alt="">
-          </div>
-          <div class="p-4-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sit consectetur adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-1" id="products">
-          <div class="p-1-image" id="products-images">
-            <img src="0 (5).jpg" alt="">
-          </div>
-          <div class="na-p-1-desc" id="products-desc">
-            <h3>dolor sit amet consectetur adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-2" id="products">
-          <div class="p-2-image" id="products-images">
-            <img src="0 (6).jpg" alt="">
-          </div>
-          <div class="p-2-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sitr adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-3" id="products">
-          <div class="p-3-image" id="products-images">
-            <img src="0 (8).jpg" alt="">
-          </div>
-          <div class="p-3-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sit r adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-4" id="products">
-          <div class="p-4-image" id="products-images">
-            <img src="0 (9).jpg" alt="">
-          </div>
-          <div class="p-4-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sit consectetur adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-1" id="products">
-          <div class="p-1-image" id="products-images">
-            <img src="0 (10).jpg" alt="">
-          </div>
-          <div class="na-p-1-desc" id="products-desc">
-            <h3>dolor sit amet consectetur adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-2" id="products">
-          <div class="p-2-image" id="products-images">
-            <img src="0 (11).jpg" alt="">
-          </div>
-          <div class="p-2-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sitr adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-3" id="products">
-          <div class="p-3-image" id="products-images">
-            <img src="22.jpg" alt="">
-          </div>
-          <div class="p-3-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sit r adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-4" id="products">
-          <div class="p-4-image" id="products-images">
-            <img src="222222.jpg" alt="">
-          </div>
-          <div class="p-4-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sit consectetur adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-1" id="products">
-          <div class="p-1-image" id="products-images">
-            <img src="1818.jpg" alt="">
-          </div>
-          <div class="na-p-1-desc" id="products-desc">
-            <h3>dolor sit amet consectetur adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-2" id="products">
-          <div class="p-2-image" id="products-images">
-            <img src="818.jpg" alt="">
-          </div>
-          <div class="p-2-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sitr adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-3" id="products">
-          <div class="p-3-image" id="products-images">
-            <img src="1313.jpg" alt="">
-          </div>
-          <div class="p-3-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sit r adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-4" id="products">
-          <div class="p-4-image" id="products-images">
-            <img src="4.jpg" alt="">
-          </div>
-          <div class="p-4-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sit consectetur adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-1" id="products">
-          <div class="p-1-image" id="products-images">
-            <img src="313.jpg" alt="">
-          </div>
-          <div class="na-p-1-desc" id="products-desc">
-            <h3>dolor sit amet consectetur adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-2" id="products">
-          <div class="p-2-image" id="products-images">
-            <img src="12.jpg" alt="">
-          </div>
-          <div class="p-2-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sitr adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-3" id="products">
-          <div class="p-3-image" id="products-images">
-            <img src="666.jpg" alt="">
-          </div>
-          <div class="p-3-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sit r adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-4" id="products">
-          <div class="p-4-image" id="products-images">
-            <img src="0099.jpg" alt="">
-          </div>
-          <div class="p-4-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sit consectetur adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-1" id="products">
-          <div class="p-1-image" id="products-images">
-            <img src="9090.jpg" alt="">
-          </div>
-          <div class="na-p-1-desc" id="products-desc">
-            <h3>dolor sit amet consectetur adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-2" id="products">
-          <div class="p-2-image" id="products-images">
-            <img src="9900.jpg" alt="">
-          </div>
-          <div class="p-2-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sitr adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-3" id="products">
-          <div class="p-3-image" id="products-images">
-            <img src="90.jpg" alt="">
-          </div>
-          <div class="p-3-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sit r adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
-        <div class="p-4" id="products">
-          <div class="p-4-image" id="products-images">
-            <img src="9999.jpg" alt="">
-          </div>
-          <div class="p-4-desc" id="products-desc">
-            <h3>Lorem ipsum dolor sit consectetur adipisicing elit. Adipisci, reprehenderit.</h3>
-          </div>
-          <input type="button" value="See Detail" title="Click here to see more detail of the product">
-        </div>
+      <!-- Column 3: Categories -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Categories</h4>
+        <ul class="footer-links">
+          <li><a href="shop.html"><i class="fa-solid fa-angle-right"></i> Running & Athletic</a></li>
+          <li><a href="shop.html"><i class="fa-solid fa-angle-right"></i> Casual Sneakers</a></li>
+          <li><a href="shop.html"><i class="fa-solid fa-angle-right"></i> Leather & Formal</a></li>
+          <li><a href="shop.html"><i class="fa-solid fa-angle-right"></i> Slip-On & Comfort</a></li>
+        </ul>
       </div>
 
+      <!-- Column 4: Contact & Live Social Icons -->
+      <div class="footer-col">
+        <h4 class="footer-heading">Connect With Us</h4>
+        <ul class="footer-contact-list">
+          <li class="footer-contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:ronlinesm@gmail.com">ronlinesm@gmail.com</a>
+          </li>
+          <li class="footer-contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+923001234567">+92 300 1234567</a>
+          </li>
+          <li class="footer-contact-item">
+            <i class="fa-brands fa-whatsapp"></i>
+            <a href="https://wa.me/923001234567" target="_blank" rel="noopener noreferrer">WhatsApp Support</a>
+          </li>
+        </ul>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <!-- footer -->
-      <div class="footer">
-        <div class="categories" id="footer-fid">
-          <h3>Categories</h3>
-          <div class="c-names" id="footer-ide">
-            <a href="#">Brands</a>
-            <a href="#">Best Features</a>
-            <a href="#">Shoes Sizing</a>
-            <a href="#">Shoes Styling</a>
-          </div>
-        </div>
-        <div class="contact" id="footer-fid">
-          <h3>Contact Us</h3>
-          <div class="c-numbers" id="footer-idee">
-            <p>ronlinesm@gmail.com</p>
-            <p>+2342343258</p>
-            <p>+3483445567</p>
-            <p>+rosmoulook.com</p>
-          </div>
-        </div>
-        <div class="quick-links" id="footer-fid">
-          <h3>Contact Us</h3>
-          <div class="q-links" id="footer-ide">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="shop.html">Shop</a>
-            <a href="#">Contact</a>
-          </div>
-        </div>
-        <div class="follow" id="footer-fid">
-          <h3>Follow Us on</h3>
-          <div class="q-links" id="footer-ide-last">
-            <a href="https://www.instagram.com"><img src="instagram.png" alt=""></a>
-            <a href="https://www.facebook.com"><img src="facebook.png" alt=""></a>
-            <a href="https://www.tiktok.com"><img src="tiktok.png" alt=""></a>
-            <a href="https://www.whatsapp.com"><img src="whatsapp.png" alt=""></a>
-            <a href="https://www.telegram.com"><img src="send.png" alt=""></a>
-          </div>
+        <!-- LIVE SOCIAL ICONS (Replaces all deleted png images) -->
+        <div class="social-icons-wrapper">
+          <a href="https://www.instagram.com" class="social-btn instagram" aria-label="Follow us on Instagram" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com" class="social-btn facebook" aria-label="Follow us on Facebook" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="https://www.tiktok.com" class="social-btn tiktok" aria-label="Follow us on TikTok" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-tiktok"></i>
+          </a>
+          <a href="https://wa.me/923001234567" class="social-btn whatsapp" aria-label="Chat on WhatsApp" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="https://t.me/OnlineShoesMarketing" class="social-btn telegram" aria-label="Join our Telegram" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+          <a href="https://www.youtube.com" class="social-btn youtube" aria-label="Watch us on YouTube" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-youtube"></i>
+          </a>
         </div>
       </div>
     </div>
+  </footer>
 
-    <!-- copyright -->
-    <div class="c-r">
-      copyright © Online Shoes marketing. All rights reserved. owner (Rahim Ullah)
+  <!-- Copyright Bar -->
+  <div class="c-r">
+    <div>
+      Copyright &copy; 2026 <strong>Online Shoes Marketing</strong>. All rights reserved.
     </div>
+    <div>
+      Designed & Engineered with &hearts; by <strong>Rahim Ullah</strong>
+    </div>
+  </div>
 
-    <!-- js link -->
-    <script src="script.js"></script>
+  <!-- JavaScript -->
+  <script src="script.js"></script>
 </body>
 
 </html>
